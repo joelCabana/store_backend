@@ -1,0 +1,28 @@
+"Definiciones de los tipos de raiz"
+type Query{
+    "lista de usuarios registrados en la base de datos (Clientes/Admin)"
+    users: [Users!]!
+}
+
+"""
+vamos a espesificar la informacion detallada del usuario
+vamos a tener en cuenta:
+email = usuario del cliente de la base de datos
+Fecha de nacimiento y registro en formato ISO
+"""
+type User{
+    "identificado unico"
+    id:ID!
+    "nombre d epila"
+    name:String!
+    "segundo nombre del usuario"
+    lastname:String!
+    "email del usuario"
+    email:String!
+    "contrasena"
+    password:String!
+    "fecha de registro de usuario"
+    registerdate:String!
+    "fecha de nacimiento del usuario"
+    birthday:String!
+}
