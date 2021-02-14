@@ -13,16 +13,16 @@ Fecha de nacimiento y registro en formato ISO
 type User{
     "identificado unico"
     id:ID!
-    "nombre d epila"
+    "nombre de epila"
     name:String!
-    "segundo nombre del usuario"
+    "Appelido/s"
     lastname:String!
-    "email del usuario"
+    "correo electronico"
     email:String!
-    "contrasena"
+    "contrasena asociado a la cuenta"
     password:String!
-    "fecha de registro de usuario"
+    "fecha de registro en la base de datos"
     registerdate:String!
-    "fecha de nacimiento del usuario"
+    "fecha de nacimiento - Solo mayores de 18 anos"
     birthday:String!
 }
