@@ -3,19 +3,33 @@ import cors from 'cors';
 import compression from 'compression';
 import { createServer } from 'http';
 
-const app = express();
+import environment from './config/environments';
+//configuracion de variables de entorno (lectura)
+if(process.env.NODE_ENV !== 'production'){
+    const env = environment;
+    console.log(env);
+}
 
-app.use(cors());
-app.use(compression());
 
-app.get('/',(_,res)=>{
-    res.send("API ONLINE");
-});
+async function init (){
+    const app = express();
 
-const httpServer = createServer(app);
-httpServer.listen(
-    {
-        port:3000
-    },
-    ()=>console.log("http://localhost:3000  API ONLINE SHOP RUNNING")
-)
+    app.use(cors());
+    app.use(compression());
+    
+    app.get('/',(_,res)=>{
+        res.send("API ONLINE");
+    });
+    
+    const httpServer = createServer(app);
+    const PORT =process.env.PORT || 3000;
+    httpServer.listen(
+        {
+            port:PORT
+        },
+        ()=>console.log(`http://localhost:${PORT} API ONLINE SHOP RUNNING`)
+    ) 
+}
+
+init();
+
